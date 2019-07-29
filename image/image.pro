@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-
+QT       += serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = image
@@ -25,15 +25,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++14
 
 SOURCES += \
+        debug.cpp \
         image.cpp \
         main.cpp \
         mainwindow.cpp \
-        pixel.cpp
+        pixel.cpp \
+        serial.cpp
 
 HEADERS += \
+        debug.h \
         image.h \
         mainwindow.h \
-        pixel.h
+        pixel.h \
+        serial.h
 
 FORMS += \
         mainwindow.ui
