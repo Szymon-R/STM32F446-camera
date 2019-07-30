@@ -14,6 +14,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    int insert_image(const QImage& im);
 
 private:
     Ui::MainWindow *ui;

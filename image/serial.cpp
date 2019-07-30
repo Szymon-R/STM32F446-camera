@@ -21,14 +21,20 @@ int Serial::acquire_data(QByteArray& data,const uint32_t size, const unsigned in
         std::cout<<"Com port not opened"<<std::endl;
         return 0;
     }
+
+    QByteArray data2;
+    usb.setReadBufferSize(size);
     while (usb.waitForReadyRead(static_cast<int>(timeout)))
     {
-        data += usb.read(size);
-        std::cout<<data.size()<<std::endl;
+        //std::cout<<"Read data: "<<usb.read(buff,size)<<std::endl;
+          //  break;
+        data += usb.readAll();
+       // std::cout<<data.size()<<std::endl;
         if(data.size()>=static_cast<int>(size))
             break;
     }
    // data=usb.read(size);
-    std::cout<<"Data size: "<<data.size();
+    int data2_size=data.size();
+    std::cout<<"Data2 size: "<<data.size();
     return 1;
 }
